@@ -64,12 +64,9 @@ The app is designed to provide ease of use for developers who frequently use Wir
    - 1st time authentication is required form the machine where the device will be connected with Wireless ADB
    - Don't forget to mark as remember always
 
----
-## Configuration
-
-To change the **Endpoint** or **Port**, update the following files:
-- **`assets/data.properties`**
-- **`res/xml/network_security_config.xml`**
+4. Change the **Endpoint** or **Port**, update the following files:
+- [data.properties](app/src/main/assets/data.properties)
+- [network_security_config.xml](app/src/main/res/xml/network_security_config.xml)
 
 ---
 ## Installation and Usage
