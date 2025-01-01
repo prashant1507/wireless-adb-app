@@ -55,6 +55,7 @@ The app is designed to provide ease of use for developers who frequently use Wir
 
 1. **Rooted Device**
    - The app requires root access to enable Wireless ADB.
+   - Refer for [Rooting Samsung Devices](app/src/main/assets/Root_Samsung_Devices.md)
 
 2. **Developer Mode**
    - Ensure Developer Mode is enabled on the device.

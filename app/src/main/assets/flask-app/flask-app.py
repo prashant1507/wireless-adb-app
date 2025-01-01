@@ -15,7 +15,7 @@ def receive_data():
     print(json.dumps(data, indent=4))
     return jsonify({"status": "success", "data": data}), 200
 
-@app.route('/hello', methods=['GET'])
+@app.route('/', methods=['GET'])
 def say_hello():
     return "Hello", 200
 

@@ -1,7 +1,0 @@
-=>
-Change IP:PORT of flask server in:
-- assets -> data.properties
-- res/xml/network_security_config.xml
--
-
-=> Don't set passcode

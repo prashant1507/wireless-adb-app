@@ -13,7 +13,13 @@ import org.json.JSONObject;
 
 public class DeviceUtils {
 
-    public static String enableWirelessADB(Context context) {
+    private final Context context;
+
+    public DeviceUtils(Context context) {
+        this.context = context;
+    }
+
+    public String enableWirelessADB() {
         boolean isPortSet = false;
         String port = Helpers.getData("PORT", context, "data.properties");
         while (!isPortSet) {
@@ -31,7 +37,7 @@ public class DeviceUtils {
         return port;
     }
 
-    public static JSONObject getDeviceDetails(String adbPort, Context context) {
+    public JSONObject getDeviceDetails(String adbPort) {
         JSONObject deviceDetails = new JSONObject();
         try {
             String serialNumber = Helpers.executeCommand("su -c getprop ro.serialno");
@@ -52,7 +58,7 @@ public class DeviceUtils {
             String architecture = Build.SUPPORTED_ABIS[0];
             String chipset = Build.HARDWARE;
             String countryCode = Helpers.executeCommand("getprop ro.csc.country_code");
-            String ipAddress = getWifiIpAddress(context);
+            String ipAddress = getWifiIpAddress();
 
             deviceDetails.put("serial_number", serialNumber);
             deviceDetails.put("model_number", modelNumber);
@@ -78,7 +84,7 @@ public class DeviceUtils {
         return deviceDetails;
     }
 
-    private static String getWifiIpAddress(Context context) {
+    private String getWifiIpAddress() {
         String ipAddress = null;
         WifiManager wifiManager = (WifiManager) context.getSystemService(WIFI_SERVICE);
         if (wifiManager != null && wifiManager.isWifiEnabled()) {

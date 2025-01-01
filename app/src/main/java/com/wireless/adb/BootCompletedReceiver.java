@@ -23,7 +23,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
                     context.startService(activityIntent);
                 }
                 Log.i("Wireless ADB App | Boot Completed", "Starting Wireless ADB Service");
-            }, 5000);
+            }, 3000);
         }
     }
 }

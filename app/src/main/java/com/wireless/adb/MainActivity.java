@@ -10,6 +10,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent serviceIntent = new Intent(this, WirelessADBService.class);
         startService(serviceIntent);
+
+        // ToDo: Add a button on the Main Activity which will send details on demand
         // Close the activity immediately
 //        finish();
     }

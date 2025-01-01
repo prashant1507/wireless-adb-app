@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +17,7 @@ import java.util.Locale;
 import java.util.Properties;
 
 public class Helpers {
+    @Nullable
     public static String executeCommand(String command) {
         try {
             Process process = Runtime.getRuntime().exec(command);
@@ -25,7 +29,8 @@ public class Helpers {
         return null;
     }
 
-    public static String getData(String key, Context context, String fileName) {
+    @Nullable
+    public static String getData(String key, @NonNull Context context, String fileName) {
         try {
             Properties properties = new Properties();;
             AssetManager assetManager = context.getAssets();
@@ -38,6 +43,7 @@ public class Helpers {
         return null;
     }
 
+    @NonNull
     public static String[] getDateTime() {
         SimpleDateFormat sfDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         SimpleDateFormat sfTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());

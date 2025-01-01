@@ -1,11 +1,14 @@
 package com.wireless.adb;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Log;
@@ -17,8 +20,6 @@ import org.json.JSONObject;
 
 public class WirelessADBService extends Service {
 
-
-    @SuppressLint("ForegroundServiceType")
     @Override
     public void onCreate() {
         super.onCreate();
@@ -32,14 +33,18 @@ public class WirelessADBService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         new Thread(() -> {
             try {
-                String port = DeviceUtils.enableWirelessADB(getApplicationContext());
-                JSONObject deviceDetails = DeviceUtils.getDeviceDetails(port, getApplicationContext());
-                new SendDataToServer().sendPostRequest(deviceDetails.toString(), getApplicationContext());
+                Context context = getApplicationContext();
+                DeviceUtils deviceUtils = new DeviceUtils(context);
+                String port = deviceUtils.enableWirelessADB();
+                JSONObject deviceDetails = deviceUtils.getDeviceDetails(port);
+                new SendDataToServer().sendPostRequest(deviceDetails.toString(), context);
             } catch (Exception e) {
                 Log.e("Wireless ADB App | On Start Command", "Error enabling ADB or sending raw", e);
             }
         }).start();
-        return START_STICKY;
+        // START_NOT_STICKY: Will not start the service if app killed by user
+        // START_STICKY: Will start the service even if app killed by user
+        return START_NOT_STICKY;
     }
 
     private void developerModeStatus() {
@@ -78,8 +83,7 @@ public class WirelessADBService extends Service {
     }
 
     private void isWifiConnected() {
-        try {
-            Thread.sleep(2000);
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
             boolean isConnected = networkInfo != null && networkInfo.isConnected() && networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
@@ -90,9 +94,7 @@ public class WirelessADBService extends Service {
                 Toast.makeText(this, "Wi-Fi is Connected", Toast.LENGTH_SHORT).show();
                 Log.i("Wireless ADB App | WiFi Connection", "Wi-Fi is Connected");
             }
-        } catch (InterruptedException e) {
-            Log.e("Wireless ADB App | WiFi Connection", "Error while checking WiFi status", e);
-        }
+        }, 2000);
     }
 
     @Nullable
