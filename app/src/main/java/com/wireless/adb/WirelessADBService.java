@@ -44,7 +44,7 @@ public class WirelessADBService extends Service {
         }).start();
         // START_NOT_STICKY: Will not start the service if app killed by user
         // START_STICKY: Will start the service even if app killed by user
-        return START_NOT_STICKY;
+        return START_STICKY;
     }
 
     private void developerModeStatus() {
