@@ -22,8 +22,13 @@ public class Helpers {
         try {
             Process process = Runtime.getRuntime().exec(command);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            return reader.readLine();
-        } catch (IOException e) {
+            StringBuilder stringBuilder = new StringBuilder();
+            while (reader.readLine() != null) {
+                stringBuilder.append("\n");
+            }
+            process.waitFor();
+            return stringBuilder.toString().stripTrailing();
+        } catch (IOException | InterruptedException e) {
             Log.e("Wireless ADB App | Execute Command", String.format("Error executing command | %s", command), e);
         }
         return null;
