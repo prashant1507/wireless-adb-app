@@ -11,4 +11,4 @@
   - GET (/hello): http://0.0.0.0:5001/hello
   - POST (/data): `curl -X POST http://192.168.0.166:5001/data -H "Content-Type: application/json" -d '{"key": "value"}'`
 - The server will also create a file using the first key of JSON
-  - For e.g., If POST JSON is `{"key": "value", "key1": "value1"}` the a `.json` file will be create under `devices/key.json`
+  - For e.g., If POST JSON is `{"key": "value", "key1": "value1"}` then a `.json` file will be create under `devices/key.json` using value of first key
