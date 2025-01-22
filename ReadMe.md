@@ -1,5 +1,6 @@
 # Android App for Enabling Wireless ADB for Rooted Devices
 
+---
 ## Overview
 
 This Android application is designed to automate enabling Wireless ADB on a rooted device.
@@ -84,8 +85,7 @@ The app is designed to provide easy use for developers who frequently use Wirele
 
 ## Debugging
 
-1. **Execute below to get logs of the app**
-   `adb logcat | grep 'Wireless ADB App'`
+**Execute below to get logs of the app** `adb logcat | grep 'Wireless ADB App'`
 
 ---
 
