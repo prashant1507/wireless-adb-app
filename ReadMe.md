@@ -84,7 +84,7 @@ The app is designed to provide ease of use for developers who frequently use Wir
 
 ## Debugging
 
-1. **Execute below to get logs of the app*
+1. **Execute below to get logs of the app**
    `adb logcat | grep 'Wireless ADB App'`
 
 ---
