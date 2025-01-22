@@ -1,10 +1,10 @@
-# Android App for Enabling Wireless ADB
+# Android App for Enabling Wireless ADB for Rooted Devices
 
 ## Overview
 
-This Android application is designed to automate the process of enabling Wireless ADB on a rooted device.
+This Android application is designed to automate enabling Wireless ADB on a rooted device.
 It also gathers device-specific details and sends them to a Flask server for storage.
-The app is designed to provide ease of use for developers who frequently use Wireless ADB, ensuring all prerequisites are met and required information is seamlessly collected and transmitted.
+The app is designed to provide easy use for developers who frequently use Wireless ADB, ensuring all prerequisites are met and required information is seamlessly collected and transmitted.
 
 ---
 
@@ -46,7 +46,7 @@ The app is designed to provide ease of use for developers who frequently use Wir
 4. **Data Transmission**
    - Sends the collected details to a Flask server using a **POST** API.
    - Stores the details in a JSON file on the server.
-   - App sends data only once on successful request.
+   - The app sends data only once upon successful request.
    - If **POST** request fails then the app will re-try by itself.
 
 ---
@@ -59,11 +59,11 @@ The app is designed to provide ease of use for developers who frequently use Wir
 
 2. **Developer Mode**
    - Ensure Developer Mode is enabled on the device.
-   - Enable 'Disable adb authorisation timeout' in Settings -> Developer options
+   - Enable 'Disable adb authorization timeout' in Settings -> Developer options
 
 3. **Authentication**
-   - 1st time authentication is required form the machine where the device will be connected with Wireless ADB
-   - Don't forget to mark as remember always
+   - 1st Time authentication is required from the machine where the device will be connected with Wireless ADB
+   - Don't forget to mark as Remember always
 
 4. Change the **Endpoint** or **Port**, update the following files:
 - [data.properties](app/src/main/assets/data.properties)
