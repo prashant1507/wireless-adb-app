@@ -2,7 +2,7 @@
 1. Unlock the Boot Loader
     - Enable 'Developer options'
     - Enable 'OEM Unlocking'
-        - If 'OEM Unlocking' is not availbale then follow:
+        - If 'OEM Unlocking' is not available then follow:
             - Goto Settings -> Developer options
             - Disable 'Auto update system'
             - Set Time to Manual
@@ -16,18 +16,18 @@
 2. Download the Firmware
     - Goto https://www.samfw.com
     - Search device using model name (Settings -> About phone -> Model Name)
-    - Select the country (consider chiset type in this case)
+    - Select the country (consider chipset type in this case)
     - Note 'Bit/SW Rev.' from the Build Number from the device. 'Bit/SW Rev.' is the 5th character from the last
         - For e.g., If 'Build Number' is TP1A.220624.014.S918BXXS1AWD1 then 'Bit/SW Rev.' is 1
     - Download the lasted firmware of the same 'Bit/SW Rev.'
-        - Once 'Bit/SW Rev.' is updgraded the download is not possible
+        - Once 'Bit/SW Rev.' is upgraded the download is not possible
         - Upgrade based on the requirement
     - Extract the zip files
 
-3. Downlaod Magisk app from https://github.com/topjohnwu/Magisk and install in the device
+3. Download Magisk app from https://github.com/topjohnwu/Magisk and install in the device
 
 4. Prepare Magisk AP file
-    - Copy the AP_* file from the extrated file from Step 2 to the device
+    - Copy the AP_* file from the extracted file from Step 2 to the device
     - Open Magisk app -> click install which is next to Magisk
     - Click Select and Patch a File and select the AP file.
     - After patching, you should transfer the patched AP file (its usually renamed to Magisk Patched or something.) to the pc
